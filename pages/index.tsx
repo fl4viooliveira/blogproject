@@ -9,7 +9,7 @@ export default function BlogHomePage({ posts }: any) {
       {posts.map((post: any) => {
         const { slug, frontmatter } = post;
 
-        const { title, author, category, date, mainImage, tags } = frontmatter;
+        const { title, author, category, date, tags } = frontmatter;
 
         return (
           <article key={title}>
