@@ -15,10 +15,9 @@ export default function BlogHomePage({ posts }: any) {
           <article key={title}>
             <Link href={`/${slug}`}>
               <h1>{title}</h1>
-              <h4>{date}</h4>
             </Link>
+            <h4>{date}</h4>
             <h2>{author}</h2>
-            {/* <Image src={mainImage} width={100} height={100} /> */}
           </article>
         );
       })}
@@ -32,11 +31,11 @@ export const getStaticProps: GetStaticProps = async () => {
   const posts = files.map((fileName: any) => {
     const slug: string = fileName.replace(".md", "");
     const readFile: any = fs.readFileSync(`posts/${fileName}`, "utf-8");
-    const { data: fromtmatter } = matter(readFile)
+    const { data: frontmatter } = matter(readFile);
 
     return {
       slug,
-      fromtmatter,
+      frontmatter,
     };
   });
 
