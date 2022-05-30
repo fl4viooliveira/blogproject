@@ -3,10 +3,12 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import styles from "../styles/BlogHome.module.css";
+import Navbar from "../components/Navbar";
 
 export default function BlogHomePage({ posts }: any) {
   return (
     <div className={styles.container}>
+      <Navbar />
       <main className={styles.mainBox}>
         {posts.map((post: any) => {
           const { slug, frontmatter } = post;

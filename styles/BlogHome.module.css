@@ -49,6 +49,5 @@
 @media (max-width: 900px) {
   .articleBox {
     width: 100%;
-    overflow: visible;
   }
 }
