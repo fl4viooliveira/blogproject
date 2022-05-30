@@ -1,7 +1,7 @@
 ---
 title: "It is a test post"
 author: "fl4viooliveira" # add the GitHub user
-date: "2022-05-20"
+date: "2022-05-30"
 category:
   - cat1
   - cat2

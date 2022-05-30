@@ -2,26 +2,39 @@ import fs from "fs";
 import matter from "gray-matter";
 import Link from "next/link";
 import { GetStaticProps } from "next";
+import styles from "../styles/BlogHome.module.css";
 
 export default function BlogHomePage({ posts }: any) {
   return (
-    <main>
-      {posts.map((post: any) => {
-        const { slug, frontmatter } = post;
-
-        const { title, author, category, date, tags } = frontmatter;
-
-        return (
-          <article key={title}>
-            <Link href={`/${slug}`}>
-              <h1>{title}</h1>
-            </Link>
-            <h4>{date}</h4>
-            <h2>{author}</h2>
-          </article>
-        );
-      })}
-    </main>
+    <div className={styles.container}>
+      <main className={styles.mainBox}>
+        {posts.map((post: any) => {
+          const { slug, frontmatter } = post;
+          const { title, author, category, date, tags } = frontmatter;
+          return (
+            <article className={styles.articleBox} key={title}>
+              <h5>{date}</h5>
+              <Link href={`/${slug}`}>
+                <h1 className={styles.title}>{title}</h1>
+              </Link>
+              <h4 className={styles.author}>{author}</h4>
+              <p>
+                {category
+                  ? category.map((cat: string) => {
+                      return (
+                        <span
+                          className={styles.category}
+                          key={cat}
+                        >{`${cat}`}</span>
+                      );
+                    })
+                  : ""}
+              </p>
+            </article>
+          );
+        })}
+      </main>
+    </div>
   );
 }
 
