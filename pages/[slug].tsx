@@ -1,3 +1,4 @@
+import Layout from "../components/Layout";
 import { GetStaticPaths, GetStaticProps } from "next";
 import fs from "fs";
 import matter, { language } from "gray-matter";
@@ -14,7 +15,7 @@ export default function Post({ frontmatter, content }: any) {
   const { title, author, category, date, tags } = frontmatter;
 
   return (
-    <div>
+    <Layout>
       <h1>{title}</h1>
       <h2>
         {author} || {date}
@@ -34,7 +35,7 @@ export default function Post({ frontmatter, content }: any) {
       >
         {content}
       </ReactMarkdown>
-    </div>
+    </Layout>
   );
 }
 
