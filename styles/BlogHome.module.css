@@ -1,10 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1280px;
-}
 .mainBox {
   display: flex;
   width: calc(100% -140px);

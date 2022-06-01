@@ -1,0 +1,7 @@
+.container {
+  text-align: center;
+}
+.container h1 {
+  margin: 10px auto;
+  font-weight: 200;
+}

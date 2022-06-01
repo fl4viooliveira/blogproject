@@ -4,11 +4,11 @@ import Link from "next/link";
 import { GetStaticProps } from "next";
 import styles from "../styles/BlogHome.module.css";
 import Navbar from "../components/Navbar";
+import Layout from "../components/Layout";
 
 export default function BlogHomePage({ posts }: any) {
   return (
-    <div className={styles.container}>
-      <Navbar />
+    <Layout>
       <main className={styles.mainBox}>
         {posts.map((post: any) => {
           const { slug, frontmatter } = post;
@@ -36,7 +36,7 @@ export default function BlogHomePage({ posts }: any) {
           );
         })}
       </main>
-    </div>
+    </Layout>
   );
 }
 
