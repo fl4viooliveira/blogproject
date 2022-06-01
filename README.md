@@ -145,9 +145,26 @@ Another way to contribute to this project is by **creating a post**.
 1. Fork the Project
 2. Create your Post Branch (`git checkout -b myPost`)
 3. Create a new .md file on the posts folder using slug format (` It-is-my-post.md`)
-4. Commit your Changes (`git commit -m "It is my post"`)
-5. Push to the Branch (`git push origin myPost`)
-6. Open a Pull Request
+4. Use the following lines on top of your post file:
+
+```yaml
+---
+title: "It is your post title"
+author: "fl4viooliveira" # add your GitHub user name
+date: "2022-05-30"
+category:
+  - cat1
+  - cat2
+tags:
+  - tag1
+  - tag2
+---
+YOUR POST CONTENT
+```
+
+5. Commit your Changes (`git commit -m "It is my post"`)
+6. Push to the Branch (`git push origin myPost`)
+7. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
