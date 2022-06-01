@@ -3,8 +3,8 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import styles from "../styles/BlogHome.module.css";
-import Navbar from "../components/Navbar";
 import Layout from "../components/Layout";
+import Image from "next/image";
 
 export default function BlogHomePage({ posts }: any) {
   return (
@@ -19,7 +19,21 @@ export default function BlogHomePage({ posts }: any) {
               <Link href={`/${slug}`}>
                 <h1 className={styles.title}>{title}</h1>
               </Link>
-              <h4 className={styles.author}>{author}</h4>
+              <div className={styles.author}>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`https://github.com/${author}`}
+                >
+                  <Image
+                    src={`https://github.com/${author}.png`}
+                    alt="Picture of author"
+                    width={50}
+                    height={50}
+                  />
+                </a>
+                {/* </Link> */}
+              </div>
               <p>
                 {category
                   ? category.map((cat: string) => {
