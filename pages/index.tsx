@@ -26,13 +26,13 @@ export default function BlogHomePage({ posts }: any) {
                   href={`https://github.com/${author}`}
                 >
                   <Image
+                    className={styles.authorImage}
                     src={`https://github.com/${author}.png`}
                     alt="Picture of author"
                     width={50}
                     height={50}
                   />
                 </a>
-                {/* </Link> */}
               </div>
               <p>
                 {category
