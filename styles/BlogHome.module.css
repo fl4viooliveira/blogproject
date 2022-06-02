@@ -46,5 +46,7 @@
 @media (max-width: 900px) {
   .articleBox {
     width: 100%;
+    margin: 10px 20px;
+    min-width: 200px;
   }
 }
