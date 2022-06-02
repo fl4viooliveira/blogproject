@@ -1,7 +1,8 @@
 ---
+date: "2022-03-29"
 title: "One more test"
 author: "filipporossi" # add the GitHub user
-date: "2022-03-29"
+intro: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
 category:
   - cat1
 tags:
