@@ -7,15 +7,25 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 
 export default function BlogHomePage({ posts }: any) {
+  posts.sort((a: any, b: any) => {
+    const dateA: any = new Date(a.frontmatter.date);
+    const dateB: any = new Date(b.frontmatter.date);
+    return dateB - dateA;
+  });
+
+  console.log(posts);
+
   return (
     <Layout>
       <main className={styles.mainBox}>
         {posts.map((post: any) => {
           const { slug, frontmatter } = post;
           const { title, author, category, date, tags } = frontmatter;
+          const postDate = new Date(date);
+
           return (
             <article className={styles.articleBox} key={title}>
-              <h5>{date}</h5>
+              <h5>{postDate.toDateString()}</h5>
               <Link href={`/${slug}`}>
                 <h1 className={styles.title}>{title}</h1>
               </Link>
