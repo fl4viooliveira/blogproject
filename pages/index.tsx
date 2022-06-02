@@ -8,7 +8,9 @@ import Image from "next/image";
 
 export default function BlogHomePage({ posts }: any) {
   posts.sort((a: any, b: any) => {
-    return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
+    const dateA: any = new Date(a.frontmatter.date);
+    const dateB: any = new Date(b.frontmatter.date);
+    return dateB - dateA;
   });
 
   console.log(posts);
