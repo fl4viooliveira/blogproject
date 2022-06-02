@@ -24,10 +24,22 @@
   font-weight: 300;
   cursor: pointer;
 }
+.avatarIntro {
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.intro {
+  font-size: 0.8rem;
+  margin: 10px;
+  /* font-weight: 100; */
+}
 .author {
   width: fit-content;
   height: fit-content;
   margin: 10px 0;
+  min-width: 35px;
 }
 .authorImage {
   border-radius: 50px;
@@ -49,4 +61,8 @@
     margin: 10px 20px;
     min-width: 200px;
   }
+  /* .avatarIntro {
+    flex-wrap: wrap;
+    justify-content: center;
+  } */
 }

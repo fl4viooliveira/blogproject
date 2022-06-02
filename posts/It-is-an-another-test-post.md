@@ -1,7 +1,8 @@
 ---
+date: "2022-04-29"
 title: "It is an another test post"
 author: "fl4viooliveira" # add the GitHub user
-date: "2022-04-29"
+intro: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
 category:
   - cat3
   - cat4

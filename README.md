@@ -149,9 +149,10 @@ Another way to contribute to this project is by **creating a post**.
 
 ```yaml
 ---
+date: "2022-05-30" # yyyy-mm-dd
 title: "It is your post title"
 author: "fl4viooliveira" # add your GitHub user name
-date: "2022-05-30"
+intro: "Write here your post introduction, ..."
 category:
   - cat1
   - cat2
