@@ -7,6 +7,10 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 
 export default function BlogHomePage({ posts }: any) {
+  posts.sort((a: any, b: any) => {
+    return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
+  });
+
   console.log(posts);
 
   return (
@@ -16,6 +20,7 @@ export default function BlogHomePage({ posts }: any) {
           const { slug, frontmatter } = post;
           const { title, author, category, date, tags } = frontmatter;
           const postDate = new Date(date);
+
           return (
             <article className={styles.articleBox} key={title}>
               <h5>{postDate.toDateString()}</h5>
