@@ -13,14 +13,12 @@ export default function BlogHomePage({ posts }: any) {
     return dateB - dateA;
   });
 
-  console.log(posts);
-
   return (
     <Layout>
       <main className={styles.mainBox}>
         {posts.map((post: any) => {
           const { slug, frontmatter } = post;
-          const { title, author, category, date, tags } = frontmatter;
+          const { title, author, intro, category, date, tags } = frontmatter;
           const postDate = new Date(date);
 
           return (
@@ -29,20 +27,23 @@ export default function BlogHomePage({ posts }: any) {
               <Link href={`/${slug}`}>
                 <h1 className={styles.title}>{title}</h1>
               </Link>
-              <div className={styles.author}>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={`https://github.com/${author}`}
-                >
-                  <Image
-                    className={styles.authorImage}
-                    src={`https://github.com/${author}.png`}
-                    alt="Picture of author"
-                    width={50}
-                    height={50}
-                  />
-                </a>
+              <div className={styles.avatarIntro}>
+                <div className={styles.author}>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`https://github.com/${author}`}
+                  >
+                    <Image
+                      className={styles.authorImage}
+                      src={`https://github.com/${author}.png`}
+                      alt="Picture of author"
+                      width={50}
+                      height={50}
+                    />
+                  </a>
+                </div>
+                <p className={styles.intro}>{intro.substr(0, 100) + " ..."}</p>
               </div>
               <p>
                 {category
