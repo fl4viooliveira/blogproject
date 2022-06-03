@@ -8,8 +8,9 @@ import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import toc from "@jsdevtools/rehype-toc";
 
+import hljs from "highlight.js";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { nord } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import Image from "next/image";
 
@@ -43,34 +44,28 @@ export default function Post({ frontmatter, content }: any) {
         {/* TODO: Add Link to category
          {category
           ? category.map((cat: string) => {
-              return <span key={cat}>{`${cat} `}</span>;
-            })
+              return <span key={cat}>{`${cat} `}</span>; })
           : ""} */}
         {category.join(", ")}
         || {tags.join(", ")}
       </h3>
-      {/* <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkBreaks]}
-        rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize, toc]}
-      >
-        {content}
-      </ReactMarkdown> */}
 
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkBreaks]}
         rehypePlugins={[rehypeRaw, toc]}
-        children={content}
+        // children={content}
         components={{
-          code({ node, inline, className, children, ...props }) {
+          code({ node, style, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
               <SyntaxHighlighter
-                // TODO: fix typescript error
-                children={String(children).replace(/\n$/, "")}
+                // style={nord}
                 language={match[1]}
-                PreTag="div"
                 {...props}
-              />
+                PreTag="div"
+              >
+                {String(children).replace(/\n$/, "")}
+              </SyntaxHighlighter>
             ) : (
               <code className={className} {...props}>
                 {children}
@@ -78,7 +73,9 @@ export default function Post({ frontmatter, content }: any) {
             );
           },
         }}
-      />
+      >
+        {content}
+      </ReactMarkdown>
     </Layout>
   );
 }
