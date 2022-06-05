@@ -1,0 +1,103 @@
+.mainBox {
+  /* width: calc(100% - 140px); */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+  margin: 0 auto;
+  justify-content: flex-start;
+}
+.postHeader {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: dotted 0.5px var(--light);
+  padding-bottom: 10px;
+}
+.title {
+  border-bottom: 0.5px var(--light) dotted;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.headerInfo {
+  /* display: flex; */
+  align-items: center;
+}
+.author {
+  display: flex;
+  align-items: center;
+}
+.author span {
+  font-style: italic;
+  margin-right: 10px;
+}
+.authorName {
+  margin: 0, 10px;
+  display: flex;
+}
+.authorLink {
+  margin-right: 10px;
+}
+.authorImage {
+  border-radius: 50px;
+}
+.date {
+  display: flex;
+}
+.date span {
+  margin-right: 10px;
+}
+.tempLine {
+  margin: 10px 0;
+}
+
+/* Markdown Style  */
+.markdownBox h1 {
+  padding: 10px 0;
+}
+.markdownBox h2 {
+  padding: 10px 0;
+}
+.markdownBox h3 {
+  padding: 10px 0;
+}
+.markdownBox h4 {
+  padding: 10px 0;
+}
+.markdownBox h5 {
+  padding: 10px 0;
+}
+.markdownBox h6 {
+  padding: 10px 0;
+}
+.markdownBox p {
+  padding: 8px 0;
+  margin: 8px 0;
+  line-height: 1.7;
+}
+.markdownBox li {
+  padding: 5px 0;
+  line-height: 1.7;
+}
+.markdownBox code {
+  background-color: var(--light);
+  padding: 2px;
+  color: var(--dark);
+  border-radius: 5px;
+}
+.markdownBox table {
+  border: 1px dotted var(--light);
+}
+.markdownBox th {
+  background-color: var(--light);
+  padding: 5px;
+  color: var(--dark);
+}
+.markdownBox tr {
+  background-color: var(--main-color);
+}
+.markdownBox td {
+  padding: 8px;
+}
+.markdownBox img {
+  max-width: 70%;
+}
