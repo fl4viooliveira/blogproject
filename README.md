@@ -151,6 +151,7 @@ Another way to contribute to this project is by **creating a post**.
 ---
 date: "2022-05-30" # yyyy-mm-dd
 title: "It is your post title"
+url: "" # If this post was previously posted on another website, please add the URL, to adding it on canonical tag.
 author: "fl4viooliveira" # add your GitHub user name
 intro: "Write here your post introduction, ..."
 category:
