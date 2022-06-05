@@ -68,7 +68,13 @@ export default function Post({ frontmatter, content }: any) {
               {/* {category.join(", ")} */}
               || {tags.join(", ")}
             </h3>
-            {url ? <a href={url}>👁 Original post.</a> : <></>}
+            {url ? (
+              <a target="_blank" rel="noreferrer" href={url}>
+                👁 Original post.
+              </a>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
         <div className={styles.markdownBox}>
