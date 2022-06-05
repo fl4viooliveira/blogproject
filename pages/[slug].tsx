@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import styles from "../styles/Post.module.css";
+import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
 import fs from "fs";
 import matter, { language } from "gray-matter";
@@ -19,11 +20,18 @@ import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 
 export default function Post({ frontmatter, content }: any) {
-  const { title, author, category, date, tags } = frontmatter;
+  const { title, url, author, category, date, tags } = frontmatter;
 
   const postDate = new Date(date);
   return (
     <Layout>
+      {url ? (
+        <Head>
+          <link rel="canonical" href={url} />
+        </Head>
+      ) : (
+        <></>
+      )}
       <div className={styles.mainBox}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.postHeader}>
@@ -60,6 +68,7 @@ export default function Post({ frontmatter, content }: any) {
               {/* {category.join(", ")} */}
               || {tags.join(", ")}
             </h3>
+            {url ? <a href={url}>👁 Original post.</a> : <></>}
           </div>
         </div>
         <div className={styles.markdownBox}>

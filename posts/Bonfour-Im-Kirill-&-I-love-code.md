@@ -1,6 +1,7 @@
 ---
 date: "2022-05-10"
 title: "Bonjour. I'm Kirill & I ❤️ code."
+url: "https://github.com/fl4viooliveira/blogproject" # add original post url, to adding on canonical tag.
 author: "feschenko" # add the GitHub user
 intro: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
 category:
