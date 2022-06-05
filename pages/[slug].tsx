@@ -69,7 +69,7 @@ export default function Post({ frontmatter, content }: any) {
               || {tags.join(", ")}
             </h3>
             {url ? (
-              <a target="_blank" href={url}>
+              <a target="_blank" rel="noreferrer" href={url}>
                 👁 Original post.
               </a>
             ) : (
