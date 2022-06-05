@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import styles from "../styles/Post.module.css";
 import { GetStaticPaths, GetStaticProps } from "next";
 import fs from "fs";
 import matter, { language } from "gray-matter";
@@ -23,59 +24,73 @@ export default function Post({ frontmatter, content }: any) {
   const postDate = new Date(date);
   return (
     <Layout>
-      <h1>{title}</h1>
-      <h2>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href={`https://github.com/${author}`}
-        >
-          {/* <Image
-            src={`https://github.com/${author}.png`}
-            alt="Picture of author"
-            width={50}
-            height={50}
-          /> */}
-          {author}
-        </a>
-        || {postDate.toDateString()}
-      </h2>
-      <h3>
-        {/* TODO: Add Link to category
-         {category
-          ? category.map((cat: string) => {
-              return <span key={cat}>{`${cat} `}</span>; })
-          : ""} */}
-        {category.join(", ")}
-        || {tags.join(", ")}
-      </h3>
-
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkBreaks]}
-        rehypePlugins={[rehypeRaw, toc]}
-        // children={content}
-        components={{
-          code({ node, style, inline, className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || "");
-            return !inline && match ? (
-              <SyntaxHighlighter
-                // style={nord}
-                language={match[1]}
-                {...props}
-                PreTag="div"
+      <div className={styles.mainBox}>
+        <h1 className={styles.title}>{title}</h1>
+        <div className={styles.postHeader}>
+          <div className={styles.headerInfo}>
+            <div className={styles.author}>
+              <span>By:</span>
+              <a
+                className={styles.authorLink}
+                target="_blank"
+                rel="noreferrer"
+                href={`https://github.com/${author}`}
               >
-                {String(children).replace(/\n$/, "")}
-              </SyntaxHighlighter>
-            ) : (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            );
-          },
-        }}
-      >
-        {content}
-      </ReactMarkdown>
+                <Image
+                  className={styles.authorImage}
+                  src={`https://github.com/${author}.png`}
+                  alt="Picture of author"
+                  width={50}
+                  height={50}
+                />
+              </a>
+              <p className={styles.authorName}>{author}</p>
+            </div>
+            <div className={styles.date}>
+              <span>On:</span>
+              <p>{postDate.toDateString()}</p>
+            </div>
+            <h3 className={styles.tempLine}>
+              {/* TODO: Add Link to category */}
+              {category
+                ? category.map((cat: string) => {
+                    return <span key={cat}>{`${cat} `}</span>;
+                  })
+                : ""}
+              {/* {category.join(", ")} */}
+              || {tags.join(", ")}
+            </h3>
+          </div>
+        </div>
+        <div className={styles.markdownBox}>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm, remarkBreaks]}
+            rehypePlugins={[rehypeRaw, toc]}
+            // children={content}
+            components={{
+              code({ node, style, inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || "");
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    // style={nord}
+                    language={match[1]}
+                    {...props}
+                    PreTag="div"
+                  >
+                    {String(children).replace(/\n$/, "")}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          >
+            {content}
+          </ReactMarkdown>
+        </div>
+      </div>
     </Layout>
   );
 }
