@@ -9,7 +9,7 @@
 .articleBox {
   width: calc(97% / 2);
   height: fit-content;
-  /* height: 150px; */
+  min-height: 250px;
   min-width: 500px;
   display: flex;
   flex-direction: column;
