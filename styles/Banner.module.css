@@ -27,16 +27,16 @@
 .buttonLine {
   display: flex;
   padding: 20px 15px;
+  margin: 0 auto;
 }
 .buttonLine button {
   background-color: var(--light);
   border: none;
-  margin-right: 20px;
-  padding: 5px 10px;
+  padding: 2px 10px;
   display: flex;
   align-items: center;
-  font-size: calc(0.5rem + 1vw);
-  font-weight: 700;
+  font-size: calc(0.5rem + 0.8vw);
+  font-weight: 500;
   color: var(--middle-dark);
   border-radius: 8px;
   cursor: pointer;
