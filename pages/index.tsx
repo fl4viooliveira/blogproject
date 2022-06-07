@@ -5,6 +5,7 @@ import { GetStaticProps } from "next";
 import styles from "../styles/BlogHome.module.css";
 import Layout from "../components/Layout";
 import Image from "next/image";
+import Banner from "../components/Banner";
 
 export default function BlogHomePage({ posts }: any) {
   posts.sort((a: any, b: any) => {
@@ -15,6 +16,7 @@ export default function BlogHomePage({ posts }: any) {
 
   return (
     <Layout>
+      <Banner />
       <main className={styles.mainBox}>
         {posts.map((post: any) => {
           const { slug, frontmatter } = post;
