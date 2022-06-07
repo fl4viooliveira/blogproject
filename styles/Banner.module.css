@@ -1,8 +1,6 @@
 .container {
   display: flex;
   width: calc(100% - 20px);
-
-  /* height: 248px; */
   height: fit-content;
   margin: 10px auto;
   align-items: center;
@@ -19,7 +17,8 @@
 }
 .projectBox h2 {
   color: var(--light);
-  font-size: calc(0.8rem + 1vw);
+  /* font-size: calc(0.8rem + 1vw); */
+  font-size: 1.2rem;
   font-weight: 700;
   padding: 15px;
 }
@@ -61,6 +60,7 @@
 .helpBox h2 {
   padding: 0 15px;
   font-size: calc(0.7rem + 1vw);
+  font-size: 1.2rem;
 }
 .helpItems {
   list-style: none;

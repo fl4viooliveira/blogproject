@@ -6,7 +6,7 @@ export default function Banner() {
   return (
     <div className={styles.container}>
       <div className={styles.projectBox}>
-        <h2>BlogProject.io</h2>
+        <h2>The Project:</h2>
         <p>
           You can find all details and codebase of this project in our GitHub
           repository. Please take a look and give us a star. ⭐ 😉
