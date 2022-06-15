@@ -11,24 +11,18 @@ import styles from "../styles/Doc.module.css";
 import Layout from "../components/Layout";
 
 export default function Docs({ content }: any) {
-  console.log(content);
+  // FIX: Fix the doc post render
   return (
     <Layout>
       <div className={styles.markdownBox}>
         <ReactMarkdown
           remarkPlugins={[remarkGfm, remarkBreaks]}
           rehypePlugins={[rehypeRaw, toc]}
-          // children={content}
           components={{
             code({ node, style, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
               return !inline && match ? (
-                <SyntaxHighlighter
-                  // style={nord}
-                  language={match[1]}
-                  {...props}
-                  PreTag="div"
-                >
+                <SyntaxHighlighter language={match[1]} {...props} PreTag="div">
                   {String(children).replace(/\n$/, "")}
                 </SyntaxHighlighter>
               ) : (
