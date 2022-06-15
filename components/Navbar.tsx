@@ -21,8 +21,8 @@ export default function Navbar() {
         <Link href="/">
           <li onClick={handleClick}>Home</li>
         </Link>
-        <Link href="/about">
-          <li>About</li>
+        <Link href="/docs">
+          <li>Docs</li>
         </Link>
       </ul>
       <div
