@@ -19,19 +19,44 @@ import Image from "next/image";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 
+import { useRouter } from "next/router";
+
 export default function Post({ frontmatter, content }: any) {
-  const { title, url, author, category, date, tags } = frontmatter;
+  const { title, url, author, intro, category, date, tags } = frontmatter;
+
+  const router = useRouter()
+  const path = `https://blogproject.io${router.asPath}`
 
   const postDate = new Date(date);
   return (
     <Layout>
-      {url ? (
-        <Head>
+      <Head>
+        {url ? (
           <link rel="canonical" href={url} />
-        </Head>
-      ) : (
-        <></>
-      )}
+        ) : (
+          <></>
+        )}
+        {/* Primary Meta Tags  */}
+        <title>{title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content={title} key={title} />
+        <meta name="description" content={intro} />
+        <meta name="keywords" content={tags.join(", ")} />
+
+        {/* Open Graph / Facebook  */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={path} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={intro} />
+        <meta property="og:image" content="https://blogproject.io/img-tag.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={path} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={intro} />
+        <meta property="twitter:image" content="https://blogproject.io/img-tag.png" />
+      </Head>
       <div className={styles.mainBox}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.postHeader}>
@@ -62,8 +87,8 @@ export default function Post({ frontmatter, content }: any) {
               {/* TODO: Add Link to category */}
               {category
                 ? category.map((cat: string) => {
-                    return <span key={cat}>{`${cat} `}</span>;
-                  })
+                  return <span key={cat}>{`${cat} `}</span>;
+                })
                 : ""}
               {/* {category.join(", ")} */}
               || {tags.join(", ")}
@@ -89,7 +114,8 @@ export default function Post({ frontmatter, content }: any) {
                   <SyntaxHighlighter
                     // style={nord}
                     language={match[1]}
-                    {...props}
+                    {...props
+                    }
                     PreTag="div"
                   >
                     {String(children).replace(/\n$/, "")}
@@ -106,7 +132,7 @@ export default function Post({ frontmatter, content }: any) {
           </ReactMarkdown>
         </div>
       </div>
-    </Layout>
+    </Layout >
   );
 }
 
