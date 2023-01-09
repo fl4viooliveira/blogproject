@@ -8,7 +8,9 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 import Banner from "../components/Banner";
 
+
 export default function BlogHomePage({ posts }: any) {
+
   posts.sort((a: any, b: any) => {
     const dateA: any = new Date(a.frontmatter.date);
     const dateB: any = new Date(b.frontmatter.date);
@@ -21,26 +23,48 @@ export default function BlogHomePage({ posts }: any) {
         {/* Primary Meta Tags  */}
         <title>BlogProject.io</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content="BlogProject.io" key="BlogProject.io" />
-        <meta name="description" content="Here's a project that can be valuable for developers who want to have a blog simply and most cheaply. Deploying on Vercel, it's free for hobby accounts.
-This blog project doesn't use a database, and the posts are Markdown files." />
-        <meta name="keywords" content="javascript, webdev, frontend, backend, reactjs, nextjs, nodejs, opensource, blog, devblog," />
+        <meta
+          property="og:title"
+          content="BlogProject.io"
+          key="BlogProject.io"
+        />
+        <meta
+          name="description"
+          content="Here's a project that can be valuable for developers who want to have a blog simply and most cheaply. Deploying on Vercel, it's free for hobby accounts.
+This blog project doesn't use a database, and the posts are Markdown files."
+        />
+        <meta
+          name="keywords"
+          content="javascript, webdev, frontend, backend, reactjs, nextjs, nodejs, opensource, blog, devblog,"
+        />
 
         {/* Open Graph / Facebook  */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blogproject.io/" />
         <meta property="og:title" content="BlogProject.io" />
-        <meta property="og:description" content="Here's a project that can be valuable for developers who want to have a blog simply and most cheaply. Deploying on Vercel, it's free for hobby accounts.
-This blog project doesn't use a database, and the posts are Markdown files." />
-        <meta property="og:image" content="https://blogproject.io/img-tag.png" />
+        <meta
+          property="og:description"
+          content="Here's a project that can be valuable for developers who want to have a blog simply and most cheaply. Deploying on Vercel, it's free for hobby accounts.
+This blog project doesn't use a database, and the posts are Markdown files."
+        />
+        <meta
+          property="og:image"
+          content="https://blogproject.io/img-tag.png"
+        />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://blogproject.io/" />
         <meta property="twitter:title" content="BlogProject.io" />
-        <meta property="twitter:description" content="Here's a project that can be valuable for developers who want to have a blog simply and most cheaply. Deploying on Vercel, it's free for hobby accounts.
-This blog project doesn't use a database, and the posts are Markdown files." />
-        <meta property="twitter:image" content="https://blogproject.io/img-tag.png" />
+        <meta
+          property="twitter:description"
+          content="Here's a project that can be valuable for developers who want to have a blog simply and most cheaply. Deploying on Vercel, it's free for hobby accounts.
+This blog project doesn't use a database, and the posts are Markdown files."
+        />
+        <meta
+          property="twitter:image"
+          content="https://blogproject.io/img-tag.png"
+        />
       </Head>
       <Banner />
       <main className={styles.mainBox}>
@@ -76,13 +100,13 @@ This blog project doesn't use a database, and the posts are Markdown files." />
               <p>
                 {category
                   ? category.map((cat: string) => {
-                    return (
-                      <span
-                        className={styles.category}
-                        key={cat}
-                      >{`${cat}`}</span>
-                    );
-                  })
+                      return (
+                        <span
+                          className={styles.category}
+                          key={cat}
+                        >{`${cat}`}</span>
+                      );
+                    })
                   : ""}
               </p>
             </article>
@@ -94,11 +118,11 @@ This blog project doesn't use a database, and the posts are Markdown files." />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const files: any = fs.readdirSync("posts");
+  const files: string[] = fs.readdirSync("posts");
 
-  const posts = files.map((fileName: any) => {
+  const posts: Object = files.map((fileName) => {
     const slug: string = fileName.replace(".md", "");
-    const readFile: any = fs.readFileSync(`posts/${fileName}`, "utf-8");
+    const readFile: string = fs.readFileSync(`posts/${fileName}`, "utf-8");
     const { data: frontmatter } = matter(readFile);
 
     return {
