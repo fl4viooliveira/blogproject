@@ -1,7 +1,7 @@
 ---
 date: "2022-06-06"
 title: "How to use arrays on JavaScript? The primary way to work and apply it in your projects."
-url: "https://fl4v.io/How-to-use-arrays-on-JavaScript-The-primary-way-to-work-and-apply-it-in-your-projects"
+url: "https://fl4v.io/blog/how-to-use-arrays-on-javascript-the-primary-way-to-work-and-apply-it-in-your-projects"
 author: "fl4viooliveira" # add the GitHub user
 intro: "One JavaScript primary function is handling data that sometimes come from the backend or users interaction. Arrays are perfect for storing these multiple data values in a single variable."
 category:

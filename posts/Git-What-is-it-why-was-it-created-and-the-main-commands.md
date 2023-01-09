@@ -1,7 +1,7 @@
 ---
 date: "2022-06-05"
 title: "Git: What is it, Why was it created, and the main commands."
-url: "https://fl4v.io/Git-What-is-it-why-was-it-created-and-the-main-commands" # add original post url, to adding on canonical tag.
+url: "https://fl4v.io/blog/Git-What-is-it-why-was-it-created-and-the-main-commands" # add original post url, to adding on canonical tag.
 author: "fl4viooliveira" # add the GitHub user
 intro: "Git is the most famous and used version control system used on the world. It’s an open-source project developed in 2005 for Linus Torvalds – the Linux kernel creator."
 category:
