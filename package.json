@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "@jsdevtools/rehype-toc": "^3.0.2",
+    "@types/fs-extra": "^11.0.0",
+    "@types/glob": "^8.0.0",
     "@types/highlightjs": "^9.12.2",
     "@types/prismjs": "^1.26.0",
     "@types/react-syntax-highlighter": "^15.5.2",
+    "fs-extra": "^11.1.0",
+    "glob": "^8.0.3",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.5.1",
     "next": "12.1.6",

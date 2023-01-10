@@ -1,5 +1,3 @@
-import fs from "fs";
-import matter from "gray-matter";
 import Link from "next/link";
 import Head from "next/head";
 import { GetStaticProps } from "next";
@@ -8,15 +6,9 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 import Banner from "../components/Banner";
 
+import { getAllPosts, PostMeta } from "../api/api";
 
-export default function BlogHomePage({ posts }: any) {
-
-  posts.sort((a: any, b: any) => {
-    const dateA: any = new Date(a.frontmatter.date);
-    const dateB: any = new Date(b.frontmatter.date);
-    return dateB - dateA;
-  });
-
+export default function BlogHomePage({ posts }: { posts: PostMeta }) {
   return (
     <Layout>
       <Head>
@@ -68,9 +60,9 @@ This blog project doesn't use a database, and the posts are Markdown files."
       </Head>
       <Banner />
       <main className={styles.mainBox}>
-        {posts.map((post: any) => {
-          const { slug, frontmatter } = post;
-          const { title, author, intro, category, date, tags } = frontmatter;
+        {Object(posts).map((post: PostMeta) => {
+          const { slug } = post;
+          const { title, author, intro, category, date, tags } = post;
           const postDate = new Date(date);
 
           return (
@@ -118,22 +110,7 @@ This blog project doesn't use a database, and the posts are Markdown files."
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const files: string[] = fs.readdirSync("posts");
+  const posts: PostMeta[] = getAllPosts().map((post) => post.meta);
 
-  const posts: Object = files.map((fileName) => {
-    const slug: string = fileName.replace(".md", "");
-    const readFile: string = fs.readFileSync(`posts/${fileName}`, "utf-8");
-    const { data: frontmatter } = matter(readFile);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
-
-  return {
-    props: {
-      posts,
-    },
-  };
+  return { props: { posts } };
 };
